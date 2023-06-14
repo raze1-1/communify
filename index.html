@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
     <div class="logo-container">
@@ -12,7 +11,9 @@
         <a href="shelter-locator.html"><button>Shelter Locator</button></a>
         <a href="forum.html"><button>Forum</button></a>
         <a href="blog.html"><button>Blog</button></a>
-        <button>Change Language</button>
+        <div class="dropdown-container">
+          <div id="google_translate_element"></div>
+        </div>
       </div>
     </div>
     <div class="divider"></div>
@@ -63,5 +64,8 @@
         </p>
       </div>
     </div>
+
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="script.js"></script>
   </body>
 </html>
