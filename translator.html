@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Language Translation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      background-color: #e5efe5;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    .text-container {
+      display: flex;
+      justify-content: center;
+    }
+
+    textarea {
+      margin: 5px;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .input-container input {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      outline: none;
+    }
+
+    .input-container input::placeholder {
+      color: #888;
+    }
+
+    .input-container input:focus {
+      border-color: #e5efe5;
+    }
+
+    .button-container {
+      margin-top: 10px;
+    }
+
+    .button-container input {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+      background-color: #5e9ed6;
+      color: #fff;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .button-container input:hover {
+      background-color: #ADD8E6;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#button').click(function() {
+        translate();
+      });
+
+      function translate() {
+        var sourceText = $('textarea#sourceText').val();
+        var targetLang = $('input#targetLanguage').val();
+
+        if (sourceText && targetLang) {
+          var sourceLang = 'en';
+
+          // Convert target language to language code
+          var targetLangCode = getLanguageCode(targetLang);
+
+          if (targetLangCode) {
+            var url = "https://translate.googleapis.com/translate_a/single?client=gtx&sl=" + sourceLang + "&tl=" + targetLangCode + "&dt=t&q=" + encodeURI(sourceText);
+
+            $.getJSON(url, function(data) {
+              $('textarea#resultText').val(data[0][0][0]);
+            });
+          } else {
+            $('textarea#resultText').val("Invalid target language");
+          }
+        }
+      }
+
+      var languageCodes = {
+        'afrikaans': 'af',
+        'albanian': 'sq',
+        'amharic': 'am',
+        'arabic': 'ar',
+        'armenian': 'hy',
+        'assamese': 'as',
+        'aymara': 'ay',
+        'azerbaijani': 'az',
+        'bambara': 'bm',
+        'basque': 'eu',
+        'belarusian': 'be',
+        'bengali': 'bn',
+        // Add more language codes here
+      };
+
+      function getLanguageCode(language) {
+        return languageCodes[language.toLowerCase()];
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2><img src="https://i.imgur.com/g9Wwe4U.png" alt="Logo"></h2>
+    <div class="text-container">
+      <textarea id="sourceText" rows="5" cols="40" placeholder="Enter text here..."></textarea>
+      <textarea id="resultText" rows="5" cols="40" readonly placeholder="Translated text here..."></textarea>
+    </div>
+    <div class="button-container">
+      <input id="button" type="button" value="Translate" />
+    </div>
+    <div class="input-container">
+      <input id="targetLanguage" type="text" placeholder="Enter target language" />
+    </div>
+  </div>
+</body>
+</html>
