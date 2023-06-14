@@ -3,4 +3,8 @@ function googleTranslateElementInit() {
     {
       pageLanguage: 'en',
       includedLanguages: 'en,ar,es,fr,de,it,ja,ko,pt,ru,zh-CN',
-      layout: google.translate
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    },
+    'google_translate_element'
+  );
+}
