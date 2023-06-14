@@ -82,3 +82,46 @@ button {
 a {
   text-decoration: none;
 }
+
+.dropdown-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.goog-te-combo {
+  font-family: "Hygge Sans", Arial, sans-serif !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  width: 200px !important;
+  padding: 6px 12px !important;
+  border-radius: 15px !important;
+  background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  outline: none !important;
+}
+
+#google_translate_element {
+  display: inline-block;
+}
+
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+.goog-logo-link {
+  display: none !important;
+}
+
+.goog-te-gadget-simple {
+  border-color: #e5efe5 !important;
+  background-color: #e5efe5 !important;
+  color: #000 !important;
+  font-family: "Hygge Sans", Arial, sans-serif !important;
+  font-size: 16px !important;
+  padding: 6px 12px !important;
+  border-radius: 15px !important;
+}
+
+.VIpgJd-ZVi9od-ORHb-OEVmcd {
+  display: none;
+}
